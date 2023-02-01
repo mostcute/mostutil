@@ -19,6 +19,11 @@ func RegisterRouter(engine *gin.Engine) {
 	engine.GET("/sysstatus", SysStatusHandle)
 }
 
+func GetSysStatus() (sysInfo SysInfo) {
+	UpdateSystemStatus(&sysInfo.SysStatus)
+	return
+}
+
 func GetSysStatusJson() string {
 	var sysInfo SysInfo
 	UpdateSystemStatus(&sysInfo.SysStatus)
