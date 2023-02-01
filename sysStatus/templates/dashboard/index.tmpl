@@ -1,0 +1,81 @@
+{{ define "user/sysstatus.html" }}
+<!DOCTYPE html>
+<html lang="zh-CN" class="theme-auto"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>系统状态</title>
+	<link rel="stylesheet" href="css/index.css">
+
+<body class="vsc-initialized">
+<div class="page-content admin dashboard">
+	<div class="ui secondary pointing tabular top attached borderless menu stackable new-menu navbar"></div>
+	<div class="ui container">
+		<h4 class="ui top attached header">
+			系统状态
+		</h4>
+		<div class="ui attached table segment">
+			<dl class="dl-horizontal admin-dl-horizontal">
+				<dt>服务运行时间</dt>
+				<dd>{{.SysStatus.Uptime}}</dd>
+				<dt>当前 Goroutines 数量</dt>
+				<dd>{{.SysStatus.NumGoroutine}}</dd>
+				<div class="ui divider"></div>
+				<dt>当前内存使用量</dt>
+				<dd>{{.SysStatus.MemAllocated}}</dd>
+				<dt>所有被分配的内存</dt>
+				<dd>{{.SysStatus.MemTotal}}</dd>
+				<dt>内存占用量</dt>
+				<dd>{{.SysStatus.MemSys}}</dd>
+				<dt>指针查找次数</dt>
+				<dd>{{.SysStatus.Lookups}}</dd>
+				<dt>内存分配次数</dt>
+				<dd>{{.SysStatus.MemMallocs}}</dd>
+				<dt>内存释放次数</dt>
+				<dd>{{.SysStatus.MemFrees}}</dd>
+				<div class="ui divider"></div>
+				<dt>当前 Heap 内存使用量</dt>
+				<dd>{{.SysStatus.HeapAlloc}}</dd>
+				<dt>Heap 内存占用量</dt>
+				<dd>{{.SysStatus.HeapSys}}</dd>
+				<dt>Heap 内存空闲量</dt>
+				<dd>{{.SysStatus.HeapIdle}}</dd>
+				<dt>正在使用的 Heap 内存</dt>
+				<dd>{{.SysStatus.HeapInuse}}</dd>
+				<dt>被释放的 Heap 内存</dt>
+				<dd>{{.SysStatus.HeapReleased}}</dd>
+				<dt>Heap 对象数量</dt>
+				<dd>{{.SysStatus.HeapObjects}}</dd>
+				<div class="ui divider"></div>
+				<dt>启动 Stack 使用量</dt>
+				<dd>{{.SysStatus.StackInuse}}</dd>
+				<dt>被分配的 Stack 内存</dt>
+				<dd>{{.SysStatus.StackSys}}</dd>
+				<dt>MSpan 结构内存使用量</dt>
+				<dd>{{.SysStatus.MSpanInuse}}</dd>
+				<dt>被分配的 MSpan 结构内存</dt>
+				<dd>{{.SysStatus.MSpanSys}}</dd>
+				<dt>MCache 结构内存使用量</dt>
+				<dd>{{.SysStatus.MCacheInuse}}</dd>
+				<dt>被分配的 MCache 结构内存</dt>
+				<dd>{{.SysStatus.MCacheSys}}</dd>
+				<dt>被分配的剖析哈希表内存</dt>
+				<dd>{{.SysStatus.BuckHashSys}}</dd>
+				<dt>被分配的 GC 元数据内存</dt>
+				<dd>{{.SysStatus.GCSys}}</dd>
+				<dt>其它被分配的系统内存</dt>
+				<dd>{{.SysStatus.OtherSys}}</dd>
+				<div class="ui divider"></div>
+				<dt>下次 GC 内存回收量</dt>
+				<dd>{{.SysStatus.NextGC}}</dd>
+				<dt>距离上次 GC 时间</dt>
+				<dd>{{.SysStatus.LastGC}}</dd>
+				<dt>GC 暂停时间总量</dt>
+				<dd>{{.SysStatus.PauseTotalNs}}</dd>
+				<dt>上次 GC 暂停时间</dt>
+				<dd>{{.SysStatus.PauseNs}}</dd>
+				<dt>GC 执行次数</dt>
+				<dd>{{.SysStatus.NumGC}}</dd>
+			</dl>
+		</div>
+	</div>
+</div>
+</body>
+{{ end }}
