@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
-	"sysStatus/util"
+	"github.com/mostcute/mostutil/sysstatus/util"
 )
 
 func main() {
