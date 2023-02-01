@@ -3,6 +3,8 @@ package util
 import (
 	"encoding/json"
 	"github.com/gin-gonic/gin"
+	"github.com/mostcute/mostutil/sysstatus/templates"
+	"html/template"
 	"log"
 	"net/http"
 )
@@ -14,9 +16,10 @@ func SysStatusHandle(ctx *gin.Context) {
 }
 
 func RegisterRouter(engine *gin.Engine) {
-	engine.LoadHTMLGlob("templates/**/*")
-	engine.Static("/css", "templates/statics")
+	templ := template.Must(template.New("").ParseFS(templates.TemplatesEmbed, "./**/*"))
+	engine.SetHTMLTemplate(templ)
 	engine.GET("/sysstatus", SysStatusHandle)
+	engine.Use(templates.StaticServer())
 }
 
 func GetSysStatus() (sysInfo SysInfo) {
